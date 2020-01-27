@@ -497,22 +497,20 @@ composite in the pool. A chromosome can include the same ID multiple times.
     \end{equation}
 
     In order to select the parents of the next generation the parents are ordered by
-    their fitness. There are two types of selection:
-    
-    \begin{itemize}
-    % This needs more work.    
-        \item Tournament selection: in order to select the parent by this method the
-        system checks the amount of crossovers assigned, then calculates the amount
-        of parent required to compete in pairs, then by doing a descendent selection
-        the slots for the tournament are filled and the winners are calculated in
-        each group.
-        \item Roulette selection: this method of selection was first decided to be
-        used directly by giving a proportional amount of chances to be selected
-        according to the fitness of a individual, however since one of the
-        objectives is to obtain variety of levels the roulette must first be ranked
-        in order to ensure that low fitness individuals can be selected as parents.
-    \end{itemize}
-    
+    their fitness. There are two types of selection, Tournament and Roulette selection.
+    % \begin{itemize}
+    % % This needs more work.    
+    %     \item Tournament selection: in order to select the parent by this method the
+    %     system checks the amount of crossovers assigned, then calculates the amount
+    %     of parent required to compete in pairs, then by doing a descendent selection
+    %     the slots for the tournament are filled and the winners are calculated in
+    %     each group.
+    %     \item Roulette selection: this method of selection was first decided to be
+    %     used directly by giving a proportional amount of chances to be selected
+    %     according to the fitness of a individual, however since one of the
+    %     objectives is to obtain variety of levels the roulette must first be ranked
+    %     in order to ensure that low fitness individuals can be selected as parents.
+    % \end{itemize}
     As for the crossover operations the system currently uses two types, single
     point crossover and double point crossover, however this crossover operation is
     not only applied to the piece array of an individual, but it is also applied to
@@ -587,14 +585,46 @@ selected these low numbers to keep the execution time below 30 minutes because
 workshop competitions usually have a time limit. We used tournament selection
 and a one-point crossover, with mutation and crossover probabilities of 0.30.
 The mutation operators used were individual, composite, and material. In 
-Figure \ref{fitness} we show the average, maximum and minimum fitness in each 
-generation. 
+Figure \ref{fitness}, we show the average, maximum, and minimum fitness in each generation. 
 
-\begin{figure*}[htbp]
-   \centerline{\includegraphics[width=160mm]{Images/fitness.png}}
+\begin{figure}[htbp]
+   \centerline{\includegraphics[width=80mm]{Images/fitness.png}}
      \caption{Population Fitness by generation.}
          \label{fitness}
-\end{figure*}
+\end{figure}
+
+Even after one generation, we can see the difference between the best and
+(Figure \ref{gen1best})  the worst (Figure \ref{gen1best}) individuals. While
+the worst individual was not even capable of keeping the balance (fitness = 1.63),
+the best in the generation produces a playable level (fitness = 78.30 ).
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=80mm]{Images/Gen1Ind1_AF.png}}
+      \caption{Best Individual of Generation 1}
+          \label{gen1best}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=80mm]{Images/Gen1Worst_After.png}}
+      \caption{Worst Individual of Generation 1}
+          \label{gen1worst}
+\end{figure}
+After ten generations, Figures  \ref{gen10best} and  \ref{gen10second} show the
+best individuals (fitness = 100 ). Even if they have a score of 100, if we
+continue running the experiment for more generations, their fitness value could
+drop because other levels will be similar to them.  
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=80mm]{Images/Last_Gen_1st_Best_After.png}}
+      \caption{Best Individual of Generation 10}
+          \label{gen10best}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=80mm]{Images/Last_Gen_2nd_Best_After.png}}
+      \caption{Second Best Individual of Generation 10}
+          \label{gen10second}
+\end{figure}
 
 
     % Using all these configurations the system is capable of creating levels, some of
