@@ -578,9 +578,24 @@ composite in the pool. A chromosome can include the same ID multiple times.
     \end{figure}
     
 \section{Empirical Evaluation }
-\label{conclusion}
+\label{experiment}
 
- 
+Here we present an experimental run of the proposed algorithm. In this
+experiment, the fitness function gives more weight to the novelty of the levels.
+The population size for the run was 20 individuals and ten generations. We
+selected these low numbers to keep the execution time below 30 minutes because
+workshop competitions usually have a time limit. We used tournament selection
+and a one-point crossover, with mutation and crossover probabilities of 0.30.
+The mutation operators used were individual, composite, and material. In 
+Figure \ref{fitness} we show the average, maximum and minimum fitness in each 
+generation. 
+
+\begin{figure*}[htbp]
+   \centerline{\includegraphics[width=160mm]{Images/fitness.png}}
+     \caption{Population Fitness by generation.}
+         \label{fitness}
+\end{figure*}
+
 
     % Using all these configurations the system is capable of creating levels, some of
     % them playable as shown in figure \ref{result_1} however the levels that can be
