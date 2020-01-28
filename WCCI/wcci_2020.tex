@@ -137,9 +137,12 @@ help to refine the proposed work.
 \section{State of the art}
 \label{SoA} 
 
-The organization by Renz et al. \cite{Renz, Renz2015TheAB}  of an 
-an AI competition to develop intelligent agents that could play new  Angry
-Birds levels better than the best human players was a very interesting boost to this area, and also boosted in general PCG by offering a challenge in different levels: from the physical, structural level, to the game play and aesthetic one.
+The organization by Renz et al. \cite{Renz, Renz2015TheAB} of an AI
+competition to develop intelligent agents that could play new Angry
+Birds levels better than the best human players was a very interesting
+boost to this area, and also boosted in general PCG by offering a
+challenge in different levels: from the physical, structural level, to
+the game play and aesthetic one.
 
 To better train and test agents, more
 novel and some times, challenging levels must be generated. Stephenson et
@@ -564,13 +567,13 @@ The system includes all these components:
     
     \begin{figure}[htbp]
         \centerline{\includegraphics[width=80mm]{Images/layer12_combine.png}}
-        \caption{Combination of composites layer and mask layer.}
+        \caption{Combination of the composites layer and the mask layer.}
         \label{layer12_combine}
     \end{figure}
     
     \begin{figure}[htbp]
         \centerline{\includegraphics[width=80mm]{Images/layer123_combine.png}}
-        \caption{Combination of figure \ref{layer12_combine} layers with pig layer.}
+        \caption{Combination of the layers in the previous figure with the pig layer.}
         \label{layer123_combine}
     \end{figure}
     
@@ -610,8 +613,7 @@ the best in the generation produces a playable level (fitness = 78.30 ).
 \end{figure}
 After ten generations, Figures  \ref{gen10best} and  \ref{gen10second} show the
 best individuals (fitness = 100 ). Even if they have a score of 100, if we
-continue running the experiment for more generations, their fitness value could
-drop because other levels will be similar to them.  
+continue running the experiment for more generations, since their fitness value could drop due to similarity with other levels.  
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=80mm]{Images/Last_Gen_1st_Best_After.png}}
@@ -643,13 +645,28 @@ drop because other levels will be similar to them.
     % - Fitness of the best individual, as well as some measures
     % - Time it took to reach those levels
     
-    \section{Conclusions and future work}
-    \label{conclusion}
+\section{Conclusions and future work}
+\label{conclusion}
 
     % As indicated by one reviewer, there are no conclusions, just future work. A couple of paragraphs with conclusions should be added
     
-        We were able to fulfill our objective of generating levels that could be played;
-    however, as seen in our figures, the current state of this system is still in the development 
+In general, in this work we were able to fulfill our objective of
+    generating levels that could be played, and that integrated
+    generation of interesting structures together with the placement
+    of pigs using a {\em layer} system that allowed the simultaneous
+    evolution of both. Evolution took into account both intrinsic
+    characteristics of the structure as well as diversity, allowing
+    the continuous production of novel structures, without having to
+    wait for the last generation. As a matter of fact and looking at
+    the competition for which this system was originally created, we
+    would produce the first 100 structurally sound levels as soon as
+    they go beyond a certain fitness threshold.
+
+Designing a fitness function is one of the most challenging parts of
+evolving levels. 
+
+    
+The figures show, however, that the current state of this system is still in the development 
     phase, and some modifications must be applied in order to optimize some aspects of it. For instance  
     by using a different way of generating individual we were able to reduce the process 
     time required on a full system execution; however we still need to work on this problem as
