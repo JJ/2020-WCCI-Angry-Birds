@@ -224,7 +224,7 @@ standing. This algorithm is not capable of creating complex structures, but
 it can produce original basic structures. We can see that evolution at this
 level can benefit from having more freedom when building basic structures.
 At this time, we do not want to form piles or sequences of blocks, this will
-be done later, at a higher level in the composite hierarchy.    
+be done later, at a higher level in the composite hierarchy.
 At this level the composite generator has the following steps:
 \begin{enumerate}
 \item Generate the first generation of the population, consisting of
@@ -255,10 +255,8 @@ to be challenging but not impossible. The rules for the competition specify that
 a configuration file must be used to generate the levels of the game in a
 limited amount of time. The file contains several restrictions;
 namely:\begin{itemize}
-\item   The number of \textit{different}
-levels that must be generated. 
+\item   The number of \textit{different} levels that must be generated. 
 \item The materials that are \textit{not allowed}.
-
 For instance, a group of generated levels must not have spheres composed of  is
 ice or stone. Moreover, a banned material can not integrate others. 
 \item The third configuration value is the \textit{number of pigs} that we must
@@ -267,7 +265,8 @@ place in a level.
 required amount of levels.
 \end{itemize}
 
-We will present next a system for evolving structures that respects those restrictions.
+We will present next a system for evolving structures that respects
+those restrictions.
 
 \subsection{Structure Evolution}
    
@@ -348,7 +347,7 @@ composite in the pool. A chromosome can include the same ID multiple times.
     blocks that survived, that is,  they were not destroyed by falling. Every one of them
     is counted and then the resulting number is compared to the initial quantity
     of pieces found before the simulation started. Each block represents a certain percentage so the missing pieces are subtracted from the total. In this
-    moment, each block is counted as if it was not a member of a
+    moment, every block is counted as if it was not a member of a
     composite since after the simulation there is only data about each individual block. 
     % What is a composite? There is a whole section devoted to explaining just that :) - Mario 
     % The fitness is only the number of remaining blocks? Even if they are in the floor? 
