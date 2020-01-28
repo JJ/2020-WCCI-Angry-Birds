@@ -145,8 +145,8 @@ challenge in different levels: from the physical, structural level, to
 the game play and aesthetic one.
 
 To better train and test agents, more
-novel and some times, challenging levels must be generated. Stephenson et
-al. proposed a related competition \cite{Stephenson2018} this time with the goal of developing a
+novel and challenging levels must be generated. Stephenson et
+al. proposed a related competition \cite{Stephenson2018}, this time with the goal of developing a
 level generator for the game. Researchers have proposed several generators
 in the following years of competition. M. Katina et al. In Kaidan's model \cite{Kaidan2015}, the algorithm controls the generation of content by
 using the skill of a player, while she is actively playing the game; The
@@ -164,7 +164,7 @@ level after a simulation. This model was later sped up using a specific Physics 
 
 The objective of generating levels need not be pure gameplay or enjoyment. Angry Birds have been also used for trying to promote mental well-being, the point of it being that the game can be used as a vehicle for art therapy \cite{fang2019angrybirdslike}. Instead of using a search-based approach, levels are generated from sketches drawn by the patient using a method called Real Pixel Image Level Generator; the main objective is to get the players to smile. This interesting approach of using some external input to generate levels could be adapted or integrated easily into search-based approaches; at the same time, it is a way of exploring how to elicit different response from game players.
 
-It is also interesting how some authors take into account the dynamics of Angry Birds gameplay, where the {\em domino effect} makes a big structure tumble over: Abdullah et al. \cite{Abdullah2019} talk about ``Rube Goldberg machines''. This specific pattern (structures that can be destroyed with a single strike) makes them interesting, and also since they are designed from a series of pre-defined structures, stability is guaranteed. This approach is similar to other which use pre-defined patterns (such as a set of towers) to guarantee stability: Ferreira and Toledo \cite{ferreira2014search} use such approach, with predefined groups of elements stacked always in the same way to guarantee that stability. The authors proposed also Tanager \cite{8082517} which again uses different stacks to structure the level and the blocks used in it, but it also encodes empty stacks (which translate to gaps). This methodology gives much more variability. At the same time, the authors proposed new ways of evaluating the levels, including interacting with actual users. 
+It is also interesting how some authors take into account the dynamics of Angry Birds gameplay, where the {\em domino effect} makes a big structure tumble over: Abdullah et al. \cite{Abdullah2019} talk about ``Rube Goldberg machines''. This specific pattern (structures that can be destroyed with a single strike) makes them interesting, and also since they are designed from a series of pre-defined structures, stability is guaranteed. This approach is similar to other which use pre-defined patterns (such as a set of towers) to guarantee stability: Ferreira and Toledo \cite{ferreira2014search} use such approach, with predefined groups of elements stacked always in the same way to guarantee that stability. The authors proposed also Tanager \cite{8082517} which again uses different stacks to structure the level and the blocks used in it, but it also encodes empty stacks (which translate to gaps). This methodology gives much more variability. At the same time, the authors proposed new ways of evaluating the levels, including interacting with actual users.
 
 % This reference is not terribly relevant
 PCG methods are also used in different contexts: Y. Jiang et al. \cite{Jiang2017}
@@ -173,7 +173,9 @@ small pool of words and letters used to create levels with text on them.
 Users would play the game, and after that,   asked them if they liked the
 layout of the Levels. This interactive approach could, in principle, be also approached in the generation of Angry Birds levels.
 
-In our case, interaction is not required or used; our main intention is to generate interesting and aesthetically pleasing levels. The methodology to achieve this is explained below.
+In our case, interaction is not required or used; our main intention
+is to generate interesting and aesthetically pleasing levels. The
+methodology to achieve this is explained below. 
 
 % ----------------------------------------
     \section{Proposed Method}
@@ -345,10 +347,9 @@ composite in the pool. A chromosome can include the same ID multiple times.
     process takes place, in this phase the resulting levels are checked for those
     blocks that survived, that is,  they were not destroyed by falling. Every one of them
     is counted and then the resulting number is compared to the initial quantity
-    of pieces found before the simulation started. Each block represents a certain percentage
-    of 100\% so the missing pieces are subtracted from the total. In this
-    moment, each block is counted as if it was not a member of a composite, this
-    is because after the simulation there is only data about each individual block. 
+    of pieces found before the simulation started. Each block represents a certain percentage so the missing pieces are subtracted from the total. In this
+    moment, each block is counted as if it was not a member of a
+    composite since after the simulation there is only data about each individual block. 
     % What is a composite? There is a whole section devoted to explaining just that :) - Mario 
     % The fitness is only the number of remaining blocks? Even if they are in the floor? 
     % Yes, they some time form nice structures. We used to take height into account, but is not 
@@ -663,14 +664,23 @@ In general, in this work we were able to fulfill our objective of
     they go beyond a certain fitness threshold.
 
 Designing a fitness function is one of the most challenging parts of
-evolving levels. 
+evolving levels; all the main objectives of the evolutionary process
+have to be taken into account, which is why we use the number of
+remaining building blocks after simulation, together with the general
+structure of the level, and another component that takes into account
+how different this structure is from the rest. Besides allowing single
+processes to generate diverse structures, this also helps the
+evolutionary process search into new parts of the structure space,
+helping the objective of generating many structures, with a high
+fitness, at the same time.
 
     
-The figures show, however, that the current state of this system is still in the development 
-    phase, and some modifications must be applied in order to optimize some aspects of it. For instance  
-    by using a different way of generating individual we were able to reduce the process 
-    time required on a full system execution; however we still need to work on this problem as
-    we mention before. 
+The figures and resulting levels show, however, that there is room for
+improvement, and some modifications must be applied in order to
+optimize some aspects of it. For instance by using a different way of
+generating individual we were able to reduce the process time required
+on a full system execution; however we still need to work on this
+problem as we mention before.
     
     Finally a different method to evaluate the individuals must be created.
     Since the current evaluation method allows us to generate playable levels,
