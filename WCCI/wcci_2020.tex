@@ -513,7 +513,7 @@ The system includes all these components:
     %     in order to ensure that low fitness individuals can be selected as parents.
     % \end{itemize}
     As for the crossover operations the system currently uses two types, single
-    point crossover and double point crossover, however this crossover operation is
+    crossover and two point crossover, however this crossover operation is
     not only applied to the piece array of an individual, but it is also applied to
     the mask of said individual, this way the mask can ensure that some pieces of
     some children in the population are now placed in the level, this can bring the
@@ -525,7 +525,7 @@ The system includes all these components:
     
     \begin{figure}[htbp]
         \centerline{\includegraphics[width=80mm]{Images/crossover.png}}
-        \caption{Single point crossover(up) and double point crossover(bottom) applied to an individual mask.}
+        \caption{Single (up) and two-point crossover (bottom) applied to an individual mask.}
         \label{crossover}
     \end{figure}
     
@@ -539,18 +539,16 @@ The system includes all these components:
         \item Change the x and y coordinates of a piece
     \end{itemize}
     
-    These mutation operators do not have to be used all at the same time on a single
-    individual but depending on the probabilities they can happen all at once,
-    since most of the pieces on a individual are mostly the same type of
+    These mutation operators do not have to be used at the same time on a single
+    individual, but depending on the probabilities they can happen all at once;
+    since most of the pieces on a individual are the same type of
     material then at least the material mutation can occur on all or most of
     the individuals to ensure that all levels will not have all the pieces with
     the same material which could render a level \textit{"boring"} by the
     fitness function.
-    
 
-    
     Finally figure \ref{layer12_combine} and figure \ref{layer123_combine} represent 
-    the way all the layers of an individual al combined to create a level after all 
+    the way all the layers of an individual are combined to create a level after all 
     the selection, combination and mutation operations, first in figure \ref{layer12_combine}
     the composites layer is obtained from an individual, by a background process the 
     width and height of all composites are obtained, then using the mask from the same 
